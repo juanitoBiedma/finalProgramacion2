@@ -58,7 +58,7 @@ async function cargarDelincuentes() {
     }
 
     try {
-        const response = await fetch('http://190.210.32.29:8080/api/delincuentes', {
+        const response = await fetch('/api/delincuentes', {
             method: "GET",
             headers: {
                 'Accept': 'application/json',
@@ -97,7 +97,7 @@ async function cargarDelitos() {
 
     try {
         // Obtener los delitos del delincuente
-        const delincuenteResponse = await fetch(`http://190.210.32.29:8080/api/delincuentes/${idDelincuente}`, {
+        const delincuenteResponse = await fetch(`/api/delincuentes/${idDelincuente}`, {
             method: "GET",
             headers: {
                 'Accept': 'application/json',
@@ -113,7 +113,7 @@ async function cargarDelitos() {
         const delitosDelincuente = delincuente.delitos.map(delito => delito.idDelito);
 
         // Obtener todos los delitos
-        const response = await fetch('http://190.210.32.29:8080/api/delitos', {
+        const response = await fetch('/api/delitos', {
             method: "GET",
             headers: {
                 'Accept': 'application/json',
@@ -159,7 +159,7 @@ async function asignarDelito() {
     }
 
     try {
-        const response = await fetch(`http://190.210.32.29:8080/api/delincuentes/${idDelincuente}/asignarDelito`, {
+        const response = await fetch(`/api/delincuentes/${idDelincuente}/asignarDelito`, {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -238,7 +238,7 @@ async function desvincularDelito(idDelito) {
     const idDelincuente = urlParams.get('idDelincuente');
 
     try {
-        const response = await fetch(`http://190.210.32.29:8080/api/delincuentes/${idDelincuente}/${idDelito}`, {
+        const response = await fetch(`/api/delincuentes/${idDelincuente}/${idDelito}`, {
             method: "DELETE",
             headers: {
                 "Accept": "application/json",

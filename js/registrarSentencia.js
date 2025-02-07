@@ -55,7 +55,7 @@ async function crearSentencia() {
     datosSentencia.juez = {idJuez: idJuez};
     datosSentencia.delito = {idDelito: idDelito};
 
-    const request = await fetch('http://190.210.32.29:8080/api/sentencias', {
+    const request = await fetch('/api/sentencias', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -79,7 +79,7 @@ async function crearSentencia() {
 
 // Función para obtener delitos y cargarlos en el select
 async function cargarDelitos() {
-    const responseDelitos = await fetch("http://190.210.32.29:8080/api/delitos", {
+    const responseDelitos = await fetch("/api/delitos", {
         method: "GET",
         headers: {
             Accept: "application/json",
@@ -87,7 +87,7 @@ async function cargarDelitos() {
         }
     });
 
-    const responseSentencias = await fetch("http://190.210.32.29:8080/api/sentencias", {
+    const responseSentencias = await fetch("/api/sentencias", {
         method: "GET",
         headers: {
             Accept: "application/json",
@@ -129,7 +129,7 @@ async function cargarDelitos() {
 
 // Función para obtener jueces y cargarlos en el select
 async function cargarJueces() {
-    const responseJueces = await fetch("http://190.210.32.29:8080/api/jueces", {
+    const responseJueces = await fetch("/api/jueces", {
         method: "GET",
         headers: {
             Accept: "application/json",

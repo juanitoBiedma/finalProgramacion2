@@ -67,7 +67,7 @@ async function crearDelito() {
     // Enviar solo los id de la sucursal si está seleccionada
     datosDelito.sucursal = {idSucursal: idSucursal};
 
-    const request = await fetch('http://190.210.32.29:8080/api/delitos', {
+    const request = await fetch('/api/delitos', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -91,7 +91,7 @@ async function crearDelito() {
 
 // Función para cargar sucursales
 async function cargarSucursales() {
-    const response = await fetch('http://190.210.32.29:8080/api/sucursales', {
+    const response = await fetch('/api/sucursales', {
         method: "GET",
         headers: {
             'Accept': 'application/json',

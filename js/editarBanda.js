@@ -36,7 +36,7 @@ async function cargarDatosBanda() {
     }
 
     try {
-        const responseBanda = await fetch(`http://190.210.32.29:8080/api/bandas/${idBanda}`, {
+        const responseBanda = await fetch(`/api/bandas/${idBanda}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -98,7 +98,7 @@ async function editarBanda() {
     }
 
     // Actualizar banda
-    const responseBanda = await fetch(`http://190.210.32.29:8080/api/bandas/editarBanda/${idBanda}`, {
+    const responseBanda = await fetch(`/api/bandas/editarBanda/${idBanda}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -121,7 +121,7 @@ async function editarBanda() {
 
 // Función para obtener entidades y cargarlas en el select
 async function cargarEntidades() {
-    const response = await fetch('http://190.210.32.29:8080/api/entidades', {
+    const response = await fetch('/api/entidades', {
         method: "GET",
         headers: {
             'Accept': 'application/json',

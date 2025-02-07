@@ -36,7 +36,7 @@ async function cargarjueces() {
     try {
         const rolUsuarioLogueado = await obtenerUsuarioLogueado();
 
-        const response = await fetch("http://190.210.32.29:8080/api/jueces", {
+        const response = await fetch("/api/jueces", {
             method: "GET",
             headers: {
                 "Accept": "application/json",
@@ -96,7 +96,7 @@ function confirmarEliminarJuez(idJuez) {
 async function eliminarJuez(idJuez) {
     try {
         // Obtener el juez
-        const responseJuez = await fetch(`http://190.210.32.29:8080/api/jueces/${idJuez}`, {
+        const responseJuez = await fetch(`/api/jueces/${idJuez}`, {
             method: "GET",
             headers: {
                 "Accept": "application/json",
@@ -106,7 +106,7 @@ async function eliminarJuez(idJuez) {
 
         if (responseJuez.ok) {
             // Eliminar el juez
-            const responseEliminarJuez = await fetch(`http://190.210.32.29:8080/api/jueces/${idJuez}`, {
+            const responseEliminarJuez = await fetch(`/api/jueces/${idJuez}`, {
                 method: "DELETE",
                 headers: {
                     "Accept": "application/json",

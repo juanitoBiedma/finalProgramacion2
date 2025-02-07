@@ -51,7 +51,7 @@ async function cargarDatosUsuario() {
     const idUsuario = getQueryParam("idUsuario"); // Obtener el ID de la URL
 
     try {
-        const responseUsuario = await fetch(`http://190.210.32.29:8080/api/usuarios/${idUsuario}`, {
+        const responseUsuario = await fetch(`/api/usuarios/${idUsuario}`, {
             method: "GET",
             headers: {
                 Accept: "application/json",
@@ -82,7 +82,7 @@ async function cargarDatosUsuario() {
 // Función para cargar los datos del vigilante
 async function cargarDatosVigilante(idUsuario) {
     try {
-        const responseVigilante = await fetch(`http://190.210.32.29:8080/api/vigilantes/usuario/${idUsuario}`, {
+        const responseVigilante = await fetch(`/api/vigilantes/usuario/${idUsuario}`, {
             method: "GET",
             headers: {
                 Accept: "application/json",
@@ -146,7 +146,7 @@ async function editarUsuario() {
     };
 
     // Actualizar Usuario
-    const responseUsuario = await fetch(`http://190.210.32.29:8080/api/usuarios/editarUsuario/${idUsuario}`, {
+    const responseUsuario = await fetch(`/api/usuarios/editarUsuario/${idUsuario}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json"
@@ -155,7 +155,7 @@ async function editarUsuario() {
     });
     if (responseUsuario.ok) {
         if (rolId === "3") {
-            const responseVigilante = await fetch(`http://190.210.32.29:8080/api/vigilantes/usuario/${idUsuario}`, {
+            const responseVigilante = await fetch(`/api/vigilantes/usuario/${idUsuario}`, {
                 method: "GET",
                 headers: {
                     Accept: "application/json",
@@ -174,7 +174,7 @@ async function editarUsuario() {
                 }
 
                 // Actualizar Vigilante si el rol es 3
-                await fetch(`http://190.210.32.29:8080/api/vigilantes/editarVigilante/${vigilante.idVigilante}`, {
+                await fetch(`/api/vigilantes/editarVigilante/${vigilante.idVigilante}`, {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json"

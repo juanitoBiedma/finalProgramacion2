@@ -55,7 +55,7 @@ async function crearDelincuente() {
     // Asignar el delito seleccionado a la lista de delitos
     datosDelincuente.delitos = [{idDelito: idDelito}];
 
-    const request = await fetch('http://190.210.32.29:8080/api/delincuentes', {
+    const request = await fetch('/api/delincuentes', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -79,7 +79,7 @@ async function crearDelincuente() {
 
 // Función para obtener delitos y cargarlos en el select
 async function cargarDelitos() {
-    const response = await fetch('http://190.210.32.29:8080/api/delitos', {
+    const response = await fetch('/api/delitos', {
         method: "GET",
         headers: {
             'Accept': 'application/json',
@@ -124,7 +124,7 @@ async function cargarDelitos() {
 
 // Función para obtener bandas y cargarlas en el select
 async function cargarBandas() {
-    const response = await fetch('http://190.210.32.29:8080/api/bandas', {
+    const response = await fetch('/api/bandas', {
         method: "GET",
         headers: {
             'Accept': 'application/json',

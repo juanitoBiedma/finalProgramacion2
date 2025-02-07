@@ -59,7 +59,7 @@ let vigilantesIds = [];
 
 async function obtenerVigilantes() {
     try {
-        const response = await fetch("http://190.210.32.29:8080/api/vigilantes", {
+        const response = await fetch("/api/vigilantes", {
             method: "GET",
             headers: {
                 "Accept": "application/json",
@@ -181,7 +181,7 @@ async function registrarVigilante() {
             const usuarioCreado = await requestUsuario.json();
             datosVigilante.usuario = usuarioCreado;
 
-            const requestVigilante = await fetch("http://190.210.32.29:8080/api/vigilantes", {
+            const requestVigilante = await fetch("/api/vigilantes", {
                 method: "POST",
                 headers: {
                     'Accept': "application/json",
@@ -203,7 +203,7 @@ async function registrarVigilante() {
                         sucursal: {idSucursal: idSucursal}
                     };
 
-                    const requestContrato = await fetch("http://190.210.32.29:8080/api/contratos", {
+                    const requestContrato = await fetch("/api/contratos", {
                         method: "POST",
                         headers: {
                             'Accept': "application/json",
@@ -220,14 +220,14 @@ async function registrarVigilante() {
                         mostrarModal("Error al crear el contrato.", function () {
                             window.location.href = 'vigilantes.html';
                         });
-                        await fetch(`http://190.210.32.29:8080/api/usuarios/${usuarioCreado.idUsuario}`, {
+                        await fetch(`/api/usuarios/${usuarioCreado.idUsuario}`, {
                             method: "DELETE",
                             headers: {
                                 'Accept': "application/json",
                                 "Content-Type": "application/json"
                             }
                         });
-                        await fetch(`http://190.210.32.29:8080/api/vigilantes/${vigilanteCreado.idVigilante}`, {
+                        await fetch(`/api/vigilantes/${vigilanteCreado.idVigilante}`, {
                             method: "DELETE",
                             headers: {
                                 'Accept': "application/json",
@@ -243,7 +243,7 @@ async function registrarVigilante() {
                 mostrarModal("Error al crear el vigilante.", function () {
                     window.location.href = 'vigilantes.html';
                 });
-                await fetch(`http://190.210.32.29:8080/api/usuarios/${usuarioCreado.idUsuario}`, {
+                await fetch(`/api/usuarios/${usuarioCreado.idUsuario}`, {
                     method: "DELETE",
                     headers: {
                         'Accept': "application/json",
@@ -263,7 +263,7 @@ async function registrarVigilante() {
 }
 
 async function cargarSucursales() {
-    const response = await fetch("http://190.210.32.29:8080/api/sucursales", {
+    const response = await fetch("/api/sucursales", {
         method: "GET",
         headers: {
             'Accept': "application/json",

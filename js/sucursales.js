@@ -35,7 +35,7 @@ async function cargarSucursales() {
     try {
         const rolUsuarioLogueado = await obtenerUsuarioLogueado();
 
-        const response = await fetch("http://190.210.32.29:8080/api/sucursales", {
+        const response = await fetch("/api/sucursales", {
             method: "GET",
             headers: {
                 "Accept": "application/json",
@@ -97,7 +97,7 @@ function confirmarEliminarSucursal(idSucursal) {
 async function eliminarSucursal(idSucursal) {
     try {
         // Obtener la sucursal
-        const responseSucursal = await fetch(`http://190.210.32.29:8080/api/sucursales/${idSucursal}`, {
+        const responseSucursal = await fetch(`/api/sucursales/${idSucursal}`, {
             method: "GET",
             headers: {
                 "Accept": "application/json",
@@ -107,7 +107,7 @@ async function eliminarSucursal(idSucursal) {
 
         if (responseSucursal.ok) {
             // Eliminar la sucursal
-            const responseEliminarSucursal = await fetch(`http://190.210.32.29:8080/api/sucursales/${idSucursal}`, {
+            const responseEliminarSucursal = await fetch(`/api/sucursales/${idSucursal}`, {
                 method: "DELETE",
                 headers: {
                     "Accept": "application/json",

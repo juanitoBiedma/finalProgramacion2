@@ -35,7 +35,7 @@ async function cargarDelitos() {
     try {
         const rolUsuarioLogueado = await obtenerUsuarioLogueado();
 
-        const response = await fetch("http://190.210.32.29:8080/api/delitos", {
+        const response = await fetch("/api/delitos", {
             method: "GET",
             headers: {
                 "Accept": "application/json",
@@ -102,7 +102,7 @@ function confirmarEliminarDelito(idDelito) {
 // Función para eliminar un delito
 async function eliminarDelito(idDelito) {
     try {
-        const response = await fetch(`http://190.210.32.29:8080/api/delitos/${idDelito}`, {
+        const response = await fetch(`/api/delitos/${idDelito}`, {
             method: "DELETE",
             headers: {
                 "Accept": "application/json",

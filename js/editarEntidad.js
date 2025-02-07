@@ -34,7 +34,7 @@ async function cargarDatosEntidad() {
     }
 
     try {
-        const responseEntidad = await fetch(`http://190.210.32.29:8080/api/entidades/${idEntidad}`, {
+        const responseEntidad = await fetch(`/api/entidades/${idEntidad}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -91,7 +91,7 @@ async function editarEntidad() {
     };
 
     // Actualizar Entidad
-    const responseEntidad = await fetch(`http://190.210.32.29:8080/api/entidades/editarEntidad/${idEntidad}`, {
+    const responseEntidad = await fetch(`/api/entidades/editarEntidad/${idEntidad}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'

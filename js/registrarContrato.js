@@ -66,7 +66,7 @@ let contratosFechas = [];
 
 async function obtenerContratos() {
     try {
-        const response = await fetch("http://190.210.32.29:8080/api/contratos", {
+        const response = await fetch("/api/contratos", {
             method: "GET",
             headers: {
                 "Accept": "application/json",
@@ -97,7 +97,7 @@ async function crearContrato() {
     const urlParams = new URLSearchParams(window.location.search);
     const idVigilante = urlParams.get('idVigilante');
 
-    const vigilanteResponse = await fetch(`http://190.210.32.29:8080/api/vigilantes/${idVigilante}`, {
+    const vigilanteResponse = await fetch(`/api/vigilantes/${idVigilante}`, {
         method: "GET",
         headers: {
             "Accept": "application/json",
@@ -144,7 +144,7 @@ async function crearContrato() {
         datosContrato.tieneArmaContrato = document.getElementById("txtTieneArmaVigilante").checked ? true : false;
 
         try {
-            const request = await fetch('http://190.210.32.29:8080/api/contratos', {
+            const request = await fetch('/api/contratos', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -156,7 +156,7 @@ async function crearContrato() {
             if (request.ok) {
                 // Actualizar el estado del vigilante
                 vigilante.estaContratadoVigilante = true;
-                await fetch(`http://190.210.32.29:8080/api/vigilantes/editarVigilante/${vigilante.idVigilante}`, {
+                await fetch(`/api/vigilantes/editarVigilante/${vigilante.idVigilante}`, {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json"
@@ -186,7 +186,7 @@ async function cargarSucursales() {
     const urlParams = new URLSearchParams(window.location.search);
     const idVigilante = urlParams.get('idVigilante');
 
-    const response = await fetch('http://190.210.32.29:8080/api/sucursales', {
+    const response = await fetch('/api/sucursales', {
         method: "GET",
         headers: {
             'Accept': 'application/json',

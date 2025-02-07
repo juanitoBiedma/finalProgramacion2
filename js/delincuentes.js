@@ -36,7 +36,7 @@ let sentencias = [];
 
 async function cargarSentencias() {
     try {
-        const response = await fetch("http://190.210.32.29:8080/api/sentencias", {
+        const response = await fetch("/api/sentencias", {
             method: "GET",
             headers: {
                 "Accept": "application/json",
@@ -58,7 +58,7 @@ async function cargarDelincuentes() {
     try {
         const rolUsuarioLogueado = await obtenerUsuarioLogueado();
 
-        const response = await fetch("http://190.210.32.29:8080/api/delincuentes", {
+        const response = await fetch("/api/delincuentes", {
             method: "GET",
             headers: {
                 "Accept": "application/json",
@@ -149,7 +149,7 @@ function confirmarEliminarDelincuente(idDelincuente) {
 async function eliminarDelincuente(idDelincuente) {
     try {
         // Obtener al delincuente
-        const responseDelincuente = await fetch(`http://190.210.32.29:8080/api/delincuentes/${idDelincuente}`, {
+        const responseDelincuente = await fetch(`/api/delincuentes/${idDelincuente}`, {
             method: "GET",
             headers: {
                 "Accept": "application/json",
@@ -159,7 +159,7 @@ async function eliminarDelincuente(idDelincuente) {
 
         if (responseDelincuente.ok) {
             // Eliminar al delincuente
-            const responseEliminarDelincuente = await fetch(`http://190.210.32.29:8080/api/delincuentes/${idDelincuente}`, {
+            const responseEliminarDelincuente = await fetch(`/api/delincuentes/${idDelincuente}`, {
                 method: "DELETE",
                 headers: {
                     "Accept": "application/json",

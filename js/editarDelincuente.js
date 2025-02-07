@@ -39,7 +39,7 @@ async function cargarDatosDelincuente() {
     }
 
     try {
-        const responseDelincuente = await fetch(`http://190.210.32.29:8080/api/delincuentes/${idDelincuente}`, {
+        const responseDelincuente = await fetch(`/api/delincuentes/${idDelincuente}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -101,7 +101,7 @@ async function editarDelincuente() {
 
     try {
         // Obtener los datos actuales del delincuente
-        const responseDelincuente = await fetch(`http://190.210.32.29:8080/api/delincuentes/${idDelincuente}`, {
+        const responseDelincuente = await fetch(`/api/delincuentes/${idDelincuente}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -126,7 +126,7 @@ async function editarDelincuente() {
         };
 
         // Actualizar delincuente
-        const responseDelincuenteEditado = await fetch(`http://190.210.32.29:8080/api/delincuentes/editarDelincuente/${idDelincuente}`, {
+        const responseDelincuenteEditado = await fetch(`/api/delincuentes/editarDelincuente/${idDelincuente}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -155,7 +155,7 @@ async function editarDelincuente() {
 
 // Función para obtener bandas y cargarlas en el select
 async function cargarBandas() {
-    const response = await fetch('http://190.210.32.29:8080/api/bandas', {
+    const response = await fetch('/api/bandas', {
         method: "GET",
         headers: {
             'Accept': 'application/json',

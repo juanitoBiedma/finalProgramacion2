@@ -36,7 +36,7 @@ async function cargarDatosSucursal() {
     }
 
     try {
-        const responseSucursal = await fetch(`http://190.210.32.29:8080/api/sucursales/${idSucursal}`, {
+        const responseSucursal = await fetch(`/api/sucursales/${idSucursal}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -104,7 +104,7 @@ async function editarSucursal() {
     }
 
     // Actualizar sucursal
-    const responseSucursal = await fetch(`http://190.210.32.29:8080/api/sucursales/editarSucursal/${idSucursal}`, {
+    const responseSucursal = await fetch(`/api/sucursales/editarSucursal/${idSucursal}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -127,7 +127,7 @@ async function editarSucursal() {
 
 // Función para obtener entidades y cargarlas en el select
 async function cargarEntidades() {
-    const response = await fetch('http://190.210.32.29:8080/api/entidades', {
+    const response = await fetch('/api/entidades', {
         method: "GET",
         headers: {
             'Accept': 'application/json',

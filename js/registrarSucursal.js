@@ -55,7 +55,7 @@ async function crearSucursal() {
 
     // Enviar solo el id de la entidad al backend
     datosSucursal.entidad = { idEntidad: idEntidad };
-    const request = await fetch('http://190.210.32.29:8080/api/sucursales', {
+    const request = await fetch('/api/sucursales', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -78,7 +78,7 @@ async function crearSucursal() {
 
 // Función para obtener entidades y cargarlas en el select
 async function cargarEntidades() {
-    const response = await fetch('http://190.210.32.29:8080/api/entidades', {
+    const response = await fetch('/api/entidades', {
         method: "GET",
         headers: {
             'Accept': 'application/json',

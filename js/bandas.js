@@ -36,7 +36,7 @@ async function cargarBandas() {
     try {
         const rolUsuarioLogueado = await obtenerUsuarioLogueado();
 
-        const response = await fetch("http://190.210.32.29:8080/api/bandas", {
+        const response = await fetch("/api/bandas", {
             method: "GET",
             headers: {
                 "Accept": "application/json",
@@ -97,7 +97,7 @@ function confirmarEliminarBanda(idBanda) {
 async function eliminarBanda(idBanda) {
     try {
         // Obtener la banda
-        const responseBanda = await fetch(`http://190.210.32.29:8080/api/bandas/${idBanda}`, {
+        const responseBanda = await fetch(`/api/bandas/${idBanda}`, {
             method: "GET",
             headers: {
                 "Accept": "application/json",
@@ -107,7 +107,7 @@ async function eliminarBanda(idBanda) {
 
         if (responseBanda.ok) {
             // Eliminar la banda
-            const responseEliminarBanda = await fetch(`http://190.210.32.29:8080/api/bandas/${idBanda}`, {
+            const responseEliminarBanda = await fetch(`/api/bandas/${idBanda}`, {
                 method: "DELETE",
                 headers: {
                     "Accept": "application/json",

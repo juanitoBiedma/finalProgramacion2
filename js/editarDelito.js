@@ -49,7 +49,7 @@ async function cargarDatosDelito() {
     }
 
     try {
-        const responseDelito = await fetch(`http://190.210.32.29:8080/api/delitos/${idDelito}`, {
+        const responseDelito = await fetch(`/api/delitos/${idDelito}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -126,7 +126,7 @@ async function editarDelito() {
     };
 
     // Actualizar delito
-    const responseDelito = await fetch(`http://190.210.32.29:8080/api/delitos/editarDelito/${idDelito}`, {
+    const responseDelito = await fetch(`/api/delitos/editarDelito/${idDelito}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -149,7 +149,7 @@ async function editarDelito() {
 
 // Función para obtener sucursales y cargarlas en el select
 async function cargarSucursales() {
-    const response = await fetch('http://190.210.32.29:8080/api/sucursales', {
+    const response = await fetch('/api/sucursales', {
         method: "GET",
         headers: {
             'Accept': 'application/json',

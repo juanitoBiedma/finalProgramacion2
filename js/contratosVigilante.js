@@ -61,7 +61,7 @@ async function cargarVigilantes() {
     }
 
     try {
-        const response = await fetch('http://190.210.32.29:8080/api/vigilantes', {
+        const response = await fetch('/api/vigilantes', {
             method: "GET",
             headers: {
                 'Accept': 'application/json',
@@ -97,7 +97,7 @@ async function asignarContrato() {
     }
 
     try {
-        const response = await fetch(`http://190.210.32.29:8080/api/vigilantes/${idVigilante}/asignarContrato`, {
+        const response = await fetch(`/api/vigilantes/${idVigilante}/asignarContrato`, {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -123,7 +123,7 @@ async function mostrarContratos() {
     const idVigilante = urlParams.get('idVigilante');
 
     // Obtener todos los contratos
-    const response = await fetch('http://190.210.32.29:8080/api/contratos', {
+    const response = await fetch('/api/contratos', {
         method: "GET",
         headers: {
             'Accept': 'application/json',
@@ -193,7 +193,7 @@ async function eliminarContrato(idContrato) {
     }
 
     try {
-        const response = await fetch(`http://190.210.32.29:8080/api/contratos/${idContrato}`, {
+        const response = await fetch(`/api/contratos/${idContrato}`, {
             method: "DELETE",
             headers: {
                 "Accept": "application/json",
@@ -208,7 +208,7 @@ async function eliminarContrato(idContrato) {
             const idVigilante = urlParams.get('idVigilante');
 
 
-            const responseContrato = await fetch(`http://190.210.32.29:8080/api/contratos`, {
+            const responseContrato = await fetch(`/api/contratos`, {
                 method: "GET",
                 headers: {
                     'Accept': 'application/json',
@@ -218,7 +218,7 @@ async function eliminarContrato(idContrato) {
 
             const contratos = await responseContrato.json();
 
-            const responseVigilante = await fetch(`http://190.210.32.29:8080/api/vigilantes/${idVigilante}`, {
+            const responseVigilante = await fetch(`/api/vigilantes/${idVigilante}`, {
                 method: "GET",
                 headers: {
                     'Accept': 'application/json',
@@ -241,7 +241,7 @@ async function eliminarContrato(idContrato) {
                 if (!flagEstaContratado) {
                     vigilante.estaContratadoVigilante = false;
 
-                    const responsePatchVigilante = await fetch(`http://190.210.32.29:8080/api/vigilantes/editarVigilante/${idVigilante}`, {
+                    const responsePatchVigilante = await fetch(`/api/vigilantes/editarVigilante/${idVigilante}`, {
                         method: "PATCH",
                         headers: {
                             'Accept': 'application/json',

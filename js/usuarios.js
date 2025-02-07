@@ -35,7 +35,7 @@ async function cargarUsuarios() {
     try {
         const rolUsuarioLogueado = await obtenerUsuarioLogueado();
 
-        const response = await fetch("http://190.210.32.29:8080/api/usuarios", {
+        const response = await fetch("/api/usuarios", {
             method: "GET",
             headers: {
                 "Accept": "application/json",
@@ -102,7 +102,7 @@ function confirmarEliminarUsuario(idUsuario) {
 
 async function eliminarUsuario(idUsuario) {
     try {
-        const responseEliminarUsuario = await fetch(`http://190.210.32.29:8080/api/usuarios/eliminarCompleto/${idUsuario}`, {
+        const responseEliminarUsuario = await fetch(`/api/usuarios/eliminarCompleto/${idUsuario}`, {
             method: "DELETE",
             headers: {
                 "Accept": "application/json",

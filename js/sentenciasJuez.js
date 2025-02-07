@@ -45,7 +45,7 @@ async function cargarSentencias() {
         const idJuez = urlParams.get('idJuez');
         // const rolUsuarioLogueado = await obtenerUsuarioLogueado();
 
-        const response = await fetch("http://190.210.32.29:8080/api/sentencias", {
+        const response = await fetch("/api/sentencias", {
             method: "GET",
             headers: {
                 "Accept": "application/json",

@@ -42,7 +42,7 @@ async function crearEntidad() {
     datosEntidad.nombreEntidad = document.getElementById('txtNombreEntidad').value;
     datosEntidad.domicilioEntidad = document.getElementById('txtDomicilioEntidad').value;
 
-    const request = await fetch('http://190.210.32.29:8080/api/entidades', {
+    const request = await fetch('/api/entidades', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',

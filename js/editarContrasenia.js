@@ -35,7 +35,7 @@ async function cargarContraseniaUsuario() {
     }
 
     try {
-        const response = await fetch(`http://190.210.32.29:8080/api/usuarios/${idUsuario}`, {
+        const response = await fetch(`/api/usuarios/${idUsuario}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -93,7 +93,7 @@ async function editarContrasenia() {
     };
 
     try {
-        const response = await fetch(`http://190.210.32.29:8080/api/usuarios/editarContrasenia/${idUsuario}`, {
+        const response = await fetch(`/api/usuarios/editarContrasenia/${idUsuario}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'

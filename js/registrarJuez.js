@@ -48,7 +48,7 @@ async function crearJuez() {
         return;
     }
 
-    const request = await fetch('http://190.210.32.29:8080/api/jueces', {
+    const request = await fetch('/api/jueces', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',

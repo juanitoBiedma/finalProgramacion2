@@ -33,7 +33,7 @@ async function obtenerUsuarioLogueado() {
 async function cargarVigilantes() {
     try {
         const rolUsuarioLogueado = await obtenerUsuarioLogueado();
-        const response = await fetch("http://190.210.32.29:8080/api/vigilantes", {
+        const response = await fetch("/api/vigilantes", {
             method: "GET",
             headers: {
                 "Accept": "application/json",
@@ -98,7 +98,7 @@ function confirmarEliminarVigilante(idVigilante) {
 async function eliminarVigilante(idUsuario) {
     try {
         // Llamada al backend para eliminar el vigilante, contrato y usuario
-        const responseEliminarVigilante = await fetch(`http://190.210.32.29:8080/api/vigilantes/eliminarCompleto/${idUsuario}`, {
+        const responseEliminarVigilante = await fetch(`/api/vigilantes/eliminarCompleto/${idUsuario}`, {
             method: "DELETE",
             headers: {
                 "Accept": "application/json",

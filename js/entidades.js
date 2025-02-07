@@ -35,7 +35,7 @@ async function cargarEntidades() {
     try {
         const rolUsuarioLogueado = await obtenerUsuarioLogueado();
 
-        const response = await fetch("http://190.210.32.29:8080/api/entidades", {
+        const response = await fetch("/api/entidades", {
             method: "GET",
             headers: {
                 "Accept": "application/json",
@@ -94,7 +94,7 @@ function confirmarEliminarEntidad(idEntidad) {
 async function eliminarEntidad(idEntidad) {
     try {
         // Obtener la entidad
-        const responseEntidad = await fetch(`http://190.210.32.29:8080/api/entidades/${idEntidad}`, {
+        const responseEntidad = await fetch(`/api/entidades/${idEntidad}`, {
             method: "GET",
             headers: {
                 "Accept": "application/json",
@@ -104,7 +104,7 @@ async function eliminarEntidad(idEntidad) {
 
         if (responseEntidad.ok) {
             // Eliminar la entidad
-            const responseEliminarEntidad = await fetch(`http://190.210.32.29:8080/api/entidades/${idEntidad}`, {
+            const responseEliminarEntidad = await fetch(`/api/entidades/${idEntidad}`, {
                 method: "DELETE",
                 headers: {
                     "Accept": "application/json",

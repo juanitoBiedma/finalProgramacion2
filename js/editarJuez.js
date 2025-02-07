@@ -34,7 +34,7 @@ async function cargarDatosJuez() {
     }
 
     try {
-        const responseJuez = await fetch(`http://190.210.32.29:8080/api/jueces/${idJuez}`, {
+        const responseJuez = await fetch(`/api/jueces/${idJuez}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -103,7 +103,7 @@ async function editarJuez() {
     }
 
     // Actualizar Juez
-    const responseJuez = await fetch(`http://190.210.32.29:8080/api/jueces/editarJuez/${idJuez}`, {
+    const responseJuez = await fetch(`/api/jueces/editarJuez/${idJuez}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'

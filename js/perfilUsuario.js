@@ -43,7 +43,7 @@ async function cargarPerfil() {
     }
 
     try {
-        const responseUsuario = await fetch(`http://190.210.32.29:8080/api/usuarios/${idUsuarioLogueado}`, {
+        const responseUsuario = await fetch(`/api/usuarios/${idUsuarioLogueado}`, {
             method: "GET",
             headers: {
                 "Accept": "application/json",
@@ -93,7 +93,7 @@ async function cargarPerfil() {
 
             if (usuario.rolUsuario.id == 3) {
                 document.querySelector("#accordionSidebar").style.display = "none";
-                const responseVigilante = await fetch(`http://190.210.32.29:8080/api/vigilantes/usuario/${idUsuarioLogueado}`, {
+                const responseVigilante = await fetch(`/api/vigilantes/usuario/${idUsuarioLogueado}`, {
                     method: "GET",
                     headers: {
                         "Accept": "application/json",
@@ -113,7 +113,7 @@ async function cargarPerfil() {
                             informacionVigilante.innerHTML = informacionVigilanteHTML;
 
                             if (vigilante.estaContratadoVigilante) {
-                                const responseContratoId = await fetch(`http://190.210.32.29:8080/api/contratos/vigilante/${vigilante.idVigilante}`, {
+                                const responseContratoId = await fetch(`/api/contratos/vigilante/${vigilante.idVigilante}`, {
                                     method: "GET",
                                     headers: {
                                         "Accept": "application/json",
@@ -124,7 +124,7 @@ async function cargarPerfil() {
                                 if (responseContratoId.ok) {
                                     const contratoId = await responseContratoId.json();
                                     if (contratoId) {
-                                        const responseContrato = await fetch(`http://190.210.32.29:8080/api/contratos/${contratoId.idContrato}`, {
+                                        const responseContrato = await fetch(`/api/contratos/${contratoId.idContrato}`, {
                                             method: "GET",
                                             headers: {
                                                 "Accept": "application/json",
