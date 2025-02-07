@@ -1,0 +1,28 @@
+.div-img-minseg{
+    background: url(../img/MinsegARGn.png) no-repeat;
+    background-size: cover;
+    height: 40px;
+    width: 40px;
+}
+
+.form-control-user-bis {
+  font-size: 0.8rem;
+  border-radius: 10rem;
+  padding: 0.5rem 0.75;
+  border: 1px solid #ced4da;
+  background-color: #fff;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control-user-bis:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(66, 153, 225, 0.25);
+}
+
+.form-control-user-bis::placeholder {
+  color: #6c757d;
+}
+
+.sidebar-hidden {
+  display: none;
+}
