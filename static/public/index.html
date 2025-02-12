@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+
+        <title>MinSeg Control</title>
+
+        <!-- Custom fonts for this template-->
+        <link href="vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet" />
+
+        <!-- Custom styles for this template-->
+        <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+        <link href="css/estilos.css" rel="stylesheet" />
+        <link href="img/MinsegARGn.png" rel="icon" />
+    </head>
+
+    <body id="page-top">
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+            <!-- Sidebar -->
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion sidebar-hidden" id="accordionSidebar">
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                    <div class="div-img-minseg"></div>
+                    <div class="sidebar-brand-text mx-3">MinSeg</div>
+                </a>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0" />
+
+                <!-- Nav Item - Usuarios -->
+                <li class="nav-item">
+                    <a class="nav-link" href="usuarios.html">
+                        <i class="fas fa-users"></i>
+                        <span>Usuarios</span>
+                    </a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider" />
+
+                <!-- Heading -->
+                <div class="sidebar-heading">Sistema</div>
+
+                <!-- Nav Item - Sistema Menu -->
+                <li class="nav-item">
+                    <a class="nav-link" href="entidades.html">
+                        <i class="fas fa-building"></i>
+                        <span>Entidades</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sucursales.html">
+                        <i class="fa-solid fa-store"></i>
+                        <span>Sucursales</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="vigilantes.html">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Vigilantes</span>
+                    </a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider" />
+
+                <!-- Heading -->
+                <div class="sidebar-heading">Justicia</div>
+
+                <!-- Nav Item - Justicia Menu -->
+                <li class="nav-item">
+                    <a class="nav-link" href="jueces.html">
+                        <i class="fa-solid fa-scale-unbalanced"></i>
+                        <span>Jueces</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="delitos.html">
+                        <i class="fa-solid fa-gavel"></i>
+                        <span>Delitos</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="delincuentes.html">
+                        <i class="fa-solid fa-user-secret"></i>
+                        <span>Delincuentes</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="sentencias.html">
+                        <i class="fas fa-scroll"></i>
+                        <span>Sentencias</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="bandas.html">
+                        <i class="fas fa-handshake"></i>
+                        <span>Bandas</span>
+                    </a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider d-none d-md-block" />
+
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
+            </ul>
+            <!-- End of Sidebar -->
+
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+                <!-- Main Content -->
+                <div id="content">
+                    <!-- Topbar -->
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">
+                            <!-- Nav Item - User Information -->
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    <span id="userName" class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+                                    <img id="userImage" class="img-profile rounded-circle"/>
+                                </a>
+                                <!-- Dropdown - User Information -->
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" href="perfilUsuario.html">
+                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Perfil
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" id="logoutButton" href="#" data-toggle="modal" data-target="#logoutModal">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Cerrar sesión
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- End of Topbar -->
+
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid justify-content-center">
+                        <!-- Content Row -->
+                        <div class="row">
+                            <div class="col-lg-10 mb-4 mx-auto">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h3 class="m-0 font-weight-bold text-primary text-center">
+                                            BIENVENIDO AL SISTEMA DE CONTROL DEL MINISTERIO DE
+                                            SEGURIDAD
+                                        </h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>
+                                            Es un honor darles la bienvenida a la nueva Plataforma de
+                                            Gestión de Seguridad del Ministerio de Seguridad, una
+                                            herramienta diseñada para optimizar y centralizar la
+                                            gestión de información crítica sobre la seguridad en
+                                            diversas entidades. Esta plataforma ha sido desarrollada
+                                            con el objetivo de proporcionar una solución eficiente y
+                                            segura que permita a los usuarios garantizar el uso seguro
+                                            de sus instalaciones.
+                                        </p>
+                                        <p class="mb-0">
+                                            En el marco de la colaboración con la Universidad
+                                            Tecnológica Nacional y el Instituto Nacional Superior del
+                                            Profesorado Técnico, bajo la supervisión de
+                                            Prof. Dr. Diego Corsi y Prof. Matías Ávalos, hemos
+                                            desarrollado un sistema robusto para gestionar la
+                                            información del Ministerio de Seguridad sobre la seguridad
+                                            en diversas entidades. Esta plataforma se ha concebido
+                                            para abordar y gestionar de manera integral todos los
+                                            aspectos relacionados con la seguridad de las entidades,
+                                            sus sucursales y sus incidentes, así como los procesos
+                                            judiciales relacionados.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Content Row -->
+                        <div class="row">
+                            <!-- Content Column -->
+                            <div class="col-lg-6 mb-4">
+                                <!-- Project Card Example -->
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">¿Para qué sirve?</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="mb-0">
+                                            Nuestra plataforma ha sido diseñada para ser accesible y
+                                            eficiente para tres tipos de usuarios: vigilantes,
+                                            investigadores y administradores.
+                                        </p>
+                                        <br>
+                                        <p class="mb-0">
+                                            Para los vigilantes, esta herramienta proporciona un acceso fácil y seguro a su información personal
+                                            y de contratación, ayudando a garantizar que los datos estén siempre actualizados y accesibles. Esto
+                                            facilita la gestión de recursos humanos y mejora la transparencia en las operaciones diarias.
+                                        </p>
+                                        <br>
+                                        <p class="mb-0">
+                                            Para los investigadores, la plataforma ofrece una visión completa y detallada de todos los
+                                            incidentes y delitos relacionados con la seguridad. Al permitir la consulta de datos históricos y
+                                            actuales, los investigadores pueden identificar patrones, analizar tendencias y desarrollar
+                                            estrategias efectivas para prevenir futuros incidentes. Esta capacidad de análisis integral es
+                                            crucial para mejorar la seguridad en todas las entidades y reducir el riesgo de delitos.
+                                        </p>
+                                        <br>
+                                        <p class="mb-0">
+                                            Para los administradores, la plataforma proporciona herramientas avanzadas de gestión y
+                                            administración. Con acceso a todas las funciones y datos, los administradores pueden supervisar y
+                                            coordinar las operaciones de seguridad de manera más efectiva. La capacidad de gestionar usuarios,
+                                            roles y permisos garantiza que solo las personas autorizadas tengan acceso a la información
+                                            sensible, protegiendo así la integridad y confidencialidad de los datos.
+                                        </p>
+                                        <br>
+                                        <p class="mb-0">
+                                            Estamos seguros de que esta herramienta será de gran
+                                            utilidad para mejorar la seguridad y la gestión de
+                                            información. Esperamos que
+                                            les sirva de apoyo en sus funciones y les
+                                            permita llevar a cabo su labor con mayor eficiencia y
+                                            efectividad.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-6 mb-4">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">
+                                            ¿Qué podemos ver?
+                                        </h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="mb-0">
+                                            La plataforma se centra en la gestión detallada de
+                                            información de seguridad en tres niveles principales:
+                                        <ol>
+                                            <br>
+                                            <br>
+                                            <li>Entidades y Sucursales: Cada entidad y sus sucursales
+                                                están registradas con un código único y su respectivo
+                                                domicilio. Además, se registra el número de empleados en
+                                                cada sucursal, proporcionando una visión clara de la
+                                                infraestructura de seguridad.</li>
+                                            <br>
+                                            <li>Vigilantes: Los vigilantes,
+                                                esenciales para la seguridad de las sucursales, están
+                                                caracterizados por un código y su edad. La plataforma
+                                                permite registrar y consultar su contratación en distintas
+                                                sucursales, incluyendo detalles específicos como la fecha
+                                                de contratación y si se ha contratado con arma. </li>
+                                            <br>
+                                            <li>Incidentes y Asaltantes: La plataforma ofrece un seguimiento
+                                                detallado de las personas detenidas por asaltos,
+                                                incluyendo su nombre completo y la banda organizada a la
+                                                que podrían pertenecer. También se registra la fecha
+                                                exacta de cada asalto, permitiendo un análisis exhaustivo
+                                                de los incidentes.</li>
+                                            <br>
+                                            <li>Procesos Judiciales: Cada caso es
+                                                asignado a un juez, caracterizado por su clave interna del
+                                                juzgado, nombre y años de servicio. La plataforma registra
+                                                si la persona detenida ha sido condenada y el tiempo de
+                                                condena, proporcionando un seguimiento completo del
+                                                proceso judicial.</li>
+                                        </ol>
+                                        <br>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Content Row -->
+                        <div class="row">
+                            <div class="col-lg-10 mb-4 mx-auto">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">
+                                            Agradecimientos
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="mb-0">
+                                            Agradecemos a todos los involucrados en el desarrollo de
+                                            esta plataforma y esperamos que sea de gran utilidad para
+                                            todos los usuarios. Gracias por su atención y les damos nuevamente la
+                                            bienvenida a esta nueva era de gestión de seguridad.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.container-fluid -->
+                </div>
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Biedma-Guarino 2024</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+            </div>
+            <!-- End of Content Wrapper -->
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            ¿Está seguro que desea salir?
+                        </h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Seleccione "Cerrar sesión" si quiere abandonar la plataforma o
+                        "cancelar" si no quiere.
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">
+                            Cancelar
+                        </button>
+                        <div class="btn btn-primary" id="confirmarLogOut">Cerrar sesión</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="vendor/chart.js/Chart.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="/env.js"></script>
+        <script src="js/index.js"></script>
+        <script src="js/logout.js"></script>
+        <script src="js/cargaNombreNav.js"></script>
+    </body>
+
+</html>
