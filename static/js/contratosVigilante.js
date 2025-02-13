@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     cargarVigilantes();
     mostrarContratos();
 
-    fetch('/auth/usuario-logueado')
+    fetch('${window.env.BACKEND_URL}/auth/usuario-logueado')
         .then(response => response.json())
         .then(data => {
             // 2 = Usuario investigador
