@@ -55,8 +55,9 @@ async function crearSentencia() {
     datosSentencia.juez = {idJuez: idJuez};
     datosSentencia.delito = {idDelito: idDelito};
 
-    const request = await fetch('${window.env.BACKEND_URL}/api/sentencias', {
+    const request = await fetch(`${window.env.BACKEND_URL}/api/sentencias`, {
         method: 'POST',
+        credentials: 'include',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -81,6 +82,7 @@ async function crearSentencia() {
 async function cargarDelitos() {
     const responseDelitos = await fetch(`${window.env.BACKEND_URL}/api/delitos`, {
         method: "GET",
+        credentials: 'include',
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json"
@@ -89,6 +91,7 @@ async function cargarDelitos() {
 
     const responseSentencias = await fetch(`${window.env.BACKEND_URL}/api/sentencias`, {
         method: "GET",
+        credentials: 'include',
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json"
@@ -131,6 +134,7 @@ async function cargarDelitos() {
 async function cargarJueces() {
     const responseJueces = await fetch(`${window.env.BACKEND_URL}/api/jueces`, {
         method: "GET",
+        credentials: 'include',
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json"

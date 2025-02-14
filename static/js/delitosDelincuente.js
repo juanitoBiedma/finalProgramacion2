@@ -26,8 +26,9 @@ function mostrarModal(mensaje, callback) {
 
 async function obtenerUsuarioLogueado() {
     try {
-        const response = await fetch('${window.env.BACKEND_URL}/auth/usuario-logueado', {
+        const response = await fetch(`${window.env.BACKEND_URL}/auth/usuario-logueado`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -58,8 +59,9 @@ async function cargarDelincuentes() {
     }
 
     try {
-        const response = await fetch('${window.env.BACKEND_URL}/api/delincuentes', {
+        const response = await fetch(`${window.env.BACKEND_URL}/api/delincuentes`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -99,6 +101,7 @@ async function cargarDelitos() {
         // Obtener los delitos del delincuente
         const delincuenteResponse = await fetch(`${window.env.BACKEND_URL}/api/delincuentes/${idDelincuente}`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -113,8 +116,9 @@ async function cargarDelitos() {
         const delitosDelincuente = delincuente.delitos.map(delito => delito.idDelito);
 
         // Obtener todos los delitos
-        const response = await fetch('${window.env.BACKEND_URL}/api/delitos', {
+        const response = await fetch(`${window.env.BACKEND_URL}/api/delitos`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -161,6 +165,7 @@ async function asignarDelito() {
     try {
         const response = await fetch(`${window.env.BACKEND_URL}/api/delincuentes/${idDelincuente}/asignarDelito`, {
             method: "POST",
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -240,6 +245,7 @@ async function desvincularDelito(idDelito) {
     try {
         const response = await fetch(`${window.env.BACKEND_URL}/api/delincuentes/${idDelincuente}/${idDelito}`, {
             method: "DELETE",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"

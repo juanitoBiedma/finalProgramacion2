@@ -15,6 +15,7 @@ async function obtenerUsuarioLogueado() {
     try {
         const response = await fetch(`${window.env.BACKEND_URL}/auth/usuario-logueado`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -38,6 +39,7 @@ async function cargarSentencias() {
     try {
         const response = await fetch(`${window.env.BACKEND_URL}/api/sentencias`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -60,6 +62,7 @@ async function cargarDelincuentes() {
 
         const response = await fetch(`${window.env.BACKEND_URL}/api/delincuentes`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -151,6 +154,7 @@ async function eliminarDelincuente(idDelincuente) {
         // Obtener al delincuente
         const responseDelincuente = await fetch(`${window.env.BACKEND_URL}/api/delincuentes/${idDelincuente}`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -161,6 +165,7 @@ async function eliminarDelincuente(idDelincuente) {
             // Eliminar al delincuente
             const responseEliminarDelincuente = await fetch(`${window.env.BACKEND_URL}/api/delincuentes/${idDelincuente}`, {
                 method: "DELETE",
+                credentials: 'include',
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json"

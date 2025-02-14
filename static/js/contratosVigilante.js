@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     cargarVigilantes();
     mostrarContratos();
 
-    fetch('${window.env.BACKEND_URL}/auth/usuario-logueado')
+    fetch(`${window.env.BACKEND_URL}/auth/usuario-logueado`)
         .then(response => response.json())
         .then(data => {
             // 2 = Usuario investigador
@@ -31,8 +31,9 @@ function mostrarModalConfirmacion() {
 
 async function obtenerUsuarioLogueado() {
     try {
-        const response = await fetch('${window.env.BACKEND_URL}/auth/usuario-logueado', {
+        const response = await fetch(`${window.env.BACKEND_URL}/auth/usuario-logueado`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -61,8 +62,9 @@ async function cargarVigilantes() {
     }
 
     try {
-        const response = await fetch('${window.env.BACKEND_URL}/api/vigilantes', {
+        const response = await fetch(`${window.env.BACKEND_URL}/api/vigilantes`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -99,6 +101,7 @@ async function asignarContrato() {
     try {
         const response = await fetch(`${window.env.BACKEND_URL}/api/vigilantes/${idVigilante}/asignarContrato`, {
             method: "POST",
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -123,8 +126,9 @@ async function mostrarContratos() {
     const idVigilante = urlParams.get('idVigilante');
 
     // Obtener todos los contratos
-    const response = await fetch('${window.env.BACKEND_URL}/api/contratos', {
+    const response = await fetch(`${window.env.BACKEND_URL}/api/contratos`, {
         method: "GET",
+        credentials: 'include',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -195,6 +199,7 @@ async function eliminarContrato(idContrato) {
     try {
         const response = await fetch(`${window.env.BACKEND_URL}/api/contratos/${idContrato}`, {
             method: "DELETE",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -210,6 +215,7 @@ async function eliminarContrato(idContrato) {
 
             const responseContrato = await fetch(`${window.env.BACKEND_URL}/api/contratos`, {
                 method: "GET",
+                credentials: 'include',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
@@ -220,6 +226,7 @@ async function eliminarContrato(idContrato) {
 
             const responseVigilante = await fetch(`${window.env.BACKEND_URL}/api/vigilantes/${idVigilante}`, {
                 method: "GET",
+                credentials: 'include',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
@@ -243,6 +250,7 @@ async function eliminarContrato(idContrato) {
 
                     const responsePatchVigilante = await fetch(`${window.env.BACKEND_URL}/api/vigilantes/editarVigilante/${idVigilante}`, {
                         method: "PATCH",
+                        credentials: 'include',
                         headers: {
                             'Accept': 'application/json',
                             'Content-Type': 'application/json'

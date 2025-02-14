@@ -13,6 +13,7 @@ async function obtenerUsuarioLogueado() {
     try {
         const response = await fetch(`${window.env.BACKEND_URL}/auth/usuario-logueado`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -35,6 +36,7 @@ async function cargarVigilantes() {
         const rolUsuarioLogueado = await obtenerUsuarioLogueado();
         const response = await fetch(`${window.env.BACKEND_URL}/api/vigilantes`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -100,6 +102,7 @@ async function eliminarVigilante(idUsuario) {
         // Llamada al backend para eliminar el vigilante, contrato y usuario
         const responseEliminarVigilante = await fetch(`${window.env.BACKEND_URL}/api/vigilantes/eliminarCompleto/${idUsuario}`, {
             method: "DELETE",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"

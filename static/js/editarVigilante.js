@@ -35,6 +35,7 @@ async function cargarDatosUsuario() {
     try {
         const responseUsuario = await fetch(`${window.env.BACKEND_URL}/api/usuarios/${idUsuario}`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
@@ -65,6 +66,7 @@ async function cargarDatosVigilante(idUsuario) {
     try {
         const responseVigilante = await fetch(`${window.env.BACKEND_URL}/api/vigilantes/usuario/${idUsuario}`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
@@ -139,6 +141,7 @@ async function editarVigilante() {
     // Actualizar Usuario
     const responseUsuario = await fetch(`${window.env.BACKEND_URL}/api/usuarios/editarUsuario/${idUsuario}`, {
         method: "PATCH",
+        credentials: 'include',
         headers: {
             "Content-Type": "application/json"
         },
@@ -147,6 +150,7 @@ async function editarVigilante() {
     if (responseUsuario.ok) {
         const responseVigilante = await fetch(`${window.env.BACKEND_URL}/api/vigilantes/usuario/${idUsuario}`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
@@ -164,6 +168,7 @@ async function editarVigilante() {
 
             await fetch(`${window.env.BACKEND_URL}/api/vigilantes/editarVigilante/${vigilante.idVigilante}`, {
                 method: "PATCH",
+                credentials: 'include',
                 headers: {
                     "Content-Type": "application/json"
                 },

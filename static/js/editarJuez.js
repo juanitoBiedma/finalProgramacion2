@@ -36,6 +36,7 @@ async function cargarDatosJuez() {
     try {
         const responseJuez = await fetch(`${window.env.BACKEND_URL}/api/jueces/${idJuez}`, {
             method: 'GET',
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -105,6 +106,7 @@ async function editarJuez() {
     // Actualizar Juez
     const responseJuez = await fetch(`${window.env.BACKEND_URL}/api/jueces/editarJuez/${idJuez}`, {
         method: 'PATCH',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json'
         },

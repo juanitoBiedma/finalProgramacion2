@@ -14,6 +14,7 @@ async function obtenerUsuarioLogueado() {
     try {
         const response = await fetch(`${window.env.BACKEND_URL}/auth/usuario-logueado`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -38,6 +39,7 @@ async function cargarBandas() {
 
         const response = await fetch(`${window.env.BACKEND_URL}/api/bandas`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -99,6 +101,7 @@ async function eliminarBanda(idBanda) {
         // Obtener la banda
         const responseBanda = await fetch(`${window.env.BACKEND_URL}/api/bandas/${idBanda}`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -109,6 +112,7 @@ async function eliminarBanda(idBanda) {
             // Eliminar la banda
             const responseEliminarBanda = await fetch(`${window.env.BACKEND_URL}/api/bandas/${idBanda}`, {
                 method: "DELETE",
+                credentials: 'include',
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json"

@@ -47,8 +47,9 @@ async function crearJuez() {
         return;
     }
 
-    const request = await fetch('${window.env.BACKEND_URL}/api/jueces', {
+    const request = await fetch(`${window.env.BACKEND_URL}/api/jueces`, {
         method: 'POST',
+        credentials: 'include',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'

@@ -41,6 +41,7 @@ async function cargarDatosDelincuente() {
     try {
         const responseDelincuente = await fetch(`${window.env.BACKEND_URL}/api/delincuentes/${idDelincuente}`, {
             method: 'GET',
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -103,6 +104,7 @@ async function editarDelincuente() {
         // Obtener los datos actuales del delincuente
         const responseDelincuente = await fetch(`${window.env.BACKEND_URL}/api/delincuentes/${idDelincuente}`, {
             method: 'GET',
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -128,6 +130,7 @@ async function editarDelincuente() {
         // Actualizar delincuente
         const responseDelincuenteEditado = await fetch(`${window.env.BACKEND_URL}/api/delincuentes/editarDelincuente/${idDelincuente}`, {
             method: 'PATCH',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -155,8 +158,9 @@ async function editarDelincuente() {
 
 // Función para obtener bandas y cargarlas en el select
 async function cargarBandas() {
-    const response = await fetch('${window.env.BACKEND_URL}/api/bandas', {
+    const response = await fetch(`${window.env.BACKEND_URL}/api/bandas`, {
         method: "GET",
+        credentials: 'include',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'

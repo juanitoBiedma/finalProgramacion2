@@ -38,6 +38,7 @@ async function cargarDatosBanda() {
     try {
         const responseBanda = await fetch(`${window.env.BACKEND_URL}/api/bandas/${idBanda}`, {
             method: 'GET',
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -100,6 +101,7 @@ async function editarBanda() {
     // Actualizar banda
     const responseBanda = await fetch(`${window.env.BACKEND_URL}/api/bandas/editarBanda/${idBanda}`, {
         method: 'PATCH',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -121,8 +123,9 @@ async function editarBanda() {
 
 // Función para obtener entidades y cargarlas en el select
 async function cargarEntidades() {
-    const response = await fetch('${window.env.BACKEND_URL}/api/entidades', {
+    const response = await fetch(`${window.env.BACKEND_URL}/api/entidades`, {
         method: "GET",
+        credentials: 'include',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'

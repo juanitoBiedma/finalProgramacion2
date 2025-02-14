@@ -68,6 +68,7 @@ async function obtenerContratos() {
     try {
         const response = await fetch(`${window.env.BACKEND_URL}/api/contratos`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -99,6 +100,7 @@ async function crearContrato() {
 
     const vigilanteResponse = await fetch(`${window.env.BACKEND_URL}/api/vigilantes/${idVigilante}`, {
         method: "GET",
+        credentials: 'include',
         headers: {
             "Accept": "application/json",
             "Content-Type": "application/json"
@@ -144,8 +146,9 @@ async function crearContrato() {
         datosContrato.tieneArmaContrato = document.getElementById("txtTieneArmaVigilante").checked ? true : false;
 
         try {
-            const request = await fetch('${window.env.BACKEND_URL}/api/contratos', {
+            const request = await fetch(`${window.env.BACKEND_URL}/api/contratos`, {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
@@ -158,6 +161,7 @@ async function crearContrato() {
                 vigilante.estaContratadoVigilante = true;
                 await fetch(`${window.env.BACKEND_URL}/api/vigilantes/editarVigilante/${vigilante.idVigilante}`, {
                     method: "PATCH",
+                    credentials: 'include',
                     headers: {
                         "Content-Type": "application/json"
                     },
@@ -186,8 +190,9 @@ async function cargarSucursales() {
     const urlParams = new URLSearchParams(window.location.search);
     const idVigilante = urlParams.get('idVigilante');
 
-    const response = await fetch('${window.env.BACKEND_URL}/api/sucursales', {
+    const response = await fetch(`${window.env.BACKEND_URL}/api/sucursales`, {
         method: "GET",
+        credentials: 'include',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'

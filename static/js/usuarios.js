@@ -14,6 +14,7 @@ async function obtenerUsuarioLogueado() {
     try {
         const response = await fetch(`${window.env.BACKEND_URL}/auth/usuario-logueado`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -37,6 +38,7 @@ async function cargarUsuarios() {
 
         const response = await fetch(`${window.env.BACKEND_URL}/api/usuarios`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -104,6 +106,7 @@ async function eliminarUsuario(idUsuario) {
     try {
         const responseEliminarUsuario = await fetch(`${window.env.BACKEND_URL}/api/usuarios/eliminarCompleto/${idUsuario}`, {
             method: "DELETE",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"

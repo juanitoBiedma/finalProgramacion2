@@ -67,8 +67,9 @@ async function crearDelito() {
     // Enviar solo los id de la sucursal si está seleccionada
     datosDelito.sucursal = {idSucursal: idSucursal};
 
-    const request = await fetch('${window.env.BACKEND_URL}/api/delitos', {
+    const request = await fetch(`${window.env.BACKEND_URL}/api/delitos`, {
         method: 'POST',
+        credentials: 'include',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -91,8 +92,9 @@ async function crearDelito() {
 
 // Función para cargar sucursales
 async function cargarSucursales() {
-    const response = await fetch('${window.env.BACKEND_URL}/api/sucursales', {
+    const response = await fetch(`${window.env.BACKEND_URL}/api/sucursales`, {
         method: "GET",
+        credentials: 'include',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'

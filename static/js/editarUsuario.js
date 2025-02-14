@@ -53,6 +53,7 @@ async function cargarDatosUsuario() {
     try {
         const responseUsuario = await fetch(`${window.env.BACKEND_URL}/api/usuarios/${idUsuario}`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
@@ -84,6 +85,7 @@ async function cargarDatosVigilante(idUsuario) {
     try {
         const responseVigilante = await fetch(`${window.env.BACKEND_URL}/api/vigilantes/usuario/${idUsuario}`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
@@ -166,6 +168,7 @@ async function editarUsuario() {
     // Actualizar Usuario
     const responseUsuario = await fetch(`${window.env.BACKEND_URL}/api/usuarios/editarUsuario/${idUsuario}`, {
         method: "PATCH",
+        credentials: 'include',
         headers: {
             "Content-Type": "application/json"
         },
@@ -175,6 +178,7 @@ async function editarUsuario() {
         if (rolId === "3") {
             const responseVigilante = await fetch(`${window.env.BACKEND_URL}/api/vigilantes/usuario/${idUsuario}`, {
                 method: "GET",
+                credentials: 'include',
                 headers: {
                     Accept: "application/json",
                     "Content-Type": "application/json"
@@ -194,6 +198,7 @@ async function editarUsuario() {
                 // Actualizar Vigilante si el rol es 3
                 await fetch(`${window.env.BACKEND_URL}/api/vigilantes/editarVigilante/${vigilante.idVigilante}`, {
                     method: "PATCH",
+                    credentials: 'include',
                     headers: {
                         "Content-Type": "application/json"
                     },

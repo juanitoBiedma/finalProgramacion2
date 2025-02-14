@@ -36,6 +36,7 @@ async function cargarDatosEntidad() {
     try {
         const responseEntidad = await fetch(`${window.env.BACKEND_URL}/api/entidades/${idEntidad}`, {
             method: 'GET',
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -93,6 +94,7 @@ async function editarEntidad() {
     // Actualizar Entidad
     const responseEntidad = await fetch(`${window.env.BACKEND_URL}/api/entidades/editarEntidad/${idEntidad}`, {
         method: 'PATCH',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json'
         },

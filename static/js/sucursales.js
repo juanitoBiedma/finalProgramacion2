@@ -14,6 +14,7 @@ async function obtenerUsuarioLogueado() {
     try {
         const response = await fetch(`${window.env.BACKEND_URL}/auth/usuario-logueado`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -37,6 +38,7 @@ async function cargarSucursales() {
 
         const response = await fetch(`${window.env.BACKEND_URL}/api/sucursales`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -99,6 +101,7 @@ async function eliminarSucursal(idSucursal) {
         // Obtener la sucursal
         const responseSucursal = await fetch(`${window.env.BACKEND_URL}/api/sucursales/${idSucursal}`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -109,6 +112,7 @@ async function eliminarSucursal(idSucursal) {
             // Eliminar la sucursal
             const responseEliminarSucursal = await fetch(`${window.env.BACKEND_URL}/api/sucursales/${idSucursal}`, {
                 method: "DELETE",
+                credentials: 'include',
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json"

@@ -41,8 +41,9 @@ async function crearEntidad() {
     datosEntidad.nombreEntidad = document.getElementById('txtNombreEntidad').value;
     datosEntidad.domicilioEntidad = document.getElementById('txtDomicilioEntidad').value;
 
-    const request = await fetch('${window.env.BACKEND_URL}/api/entidades', {
+    const request = await fetch(`${window.env.BACKEND_URL}/api/entidades`, {
         method: 'POST',
+        credentials: 'include',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'

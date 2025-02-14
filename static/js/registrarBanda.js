@@ -48,8 +48,9 @@ async function crearBanda() {
         return;
     }
 
-    const request = await fetch('${window.env.BACKEND_URL}/api/bandas', {
+    const request = await fetch(`${window.env.BACKEND_URL}/api/bandas`, {
         method: 'POST',
+        credentials: 'include',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'

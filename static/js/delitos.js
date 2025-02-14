@@ -13,6 +13,7 @@ async function obtenerUsuarioLogueado() {
     try {
         const response = await fetch(`${window.env.BACKEND_URL}/auth/usuario-logueado`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -37,6 +38,7 @@ async function cargarDelitos() {
 
         const response = await fetch(`${window.env.BACKEND_URL}/api/delitos`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -104,6 +106,7 @@ async function eliminarDelito(idDelito) {
     try {
         const response = await fetch(`${window.env.BACKEND_URL}/api/delitos/${idDelito}`, {
             method: "DELETE",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"

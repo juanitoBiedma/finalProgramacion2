@@ -75,6 +75,7 @@ async function obtenerVigilantes() {
     try {
         const response = await fetch(`${window.env.BACKEND_URL}/api/vigilantes`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -225,6 +226,7 @@ async function crearUsuario() {
     try {
         const requestUsuario = await fetch(`${window.env.BACKEND_URL}/auth/alta`, {
             method: "POST",
+            credentials: 'include',
             headers: {
                 'Accept': "application/json",
                 "Content-Type": "application/json"
@@ -239,6 +241,7 @@ async function crearUsuario() {
 
                 const requestVigilante = await fetch(`${window.env.BACKEND_URL}/api/vigilantes`, {
                     method: "POST",
+                    credentials: 'include',
                     headers: {
                         'Accept': "application/json",
                         "Content-Type": "application/json"
@@ -261,6 +264,7 @@ async function crearUsuario() {
 
                         const requestContrato = await fetch(`${window.env.BACKEND_URL}/api/contratos`, {
                             method: "POST",
+                            credentials: 'include',
                             headers: {
                                 'Accept': "application/json",
                                 "Content-Type": "application/json"
@@ -278,6 +282,7 @@ async function crearUsuario() {
                             });
                             await fetch(`${window.env.BACKEND_URL}/api/usuarios/${usuarioCreado.idUsuario}`, {
                                 method: "DELETE",
+                                credentials: 'include',
                                 headers: {
                                     'Accept': "application/json",
                                     "Content-Type": "application/json"
@@ -285,6 +290,7 @@ async function crearUsuario() {
                             });
                             await fetch(`${window.env.BACKEND_URL}/api/vigilantes/${vigilanteCreado.idVigilante}`, {
                                 method: "DELETE",
+                                credentials: 'include',
                                 headers: {
                                     'Accept': "application/json",
                                     "Content-Type": "application/json"
@@ -302,6 +308,7 @@ async function crearUsuario() {
                     });
                     await fetch(`${window.env.BACKEND_URL}/api/usuarios/${usuarioCreado.idUsuario}`, {
                         method: "DELETE",
+                        credentials: 'include',
                         headers: {
                             'Accept': "application/json",
                             "Content-Type": "application/json"
@@ -331,6 +338,7 @@ async function crearUsuario() {
 async function cargarSucursales() {
     const response = await fetch(`${window.env.BACKEND_URL}/api/sucursales`, {
         method: "GET",
+        credentials: 'include',
         headers: {
             'Accept': "application/json",
             "Content-Type": "application/json"

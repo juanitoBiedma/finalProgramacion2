@@ -51,6 +51,7 @@ async function cargarDatosDelito() {
     try {
         const responseDelito = await fetch(`${window.env.BACKEND_URL}/api/delitos/${idDelito}`, {
             method: 'GET',
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -128,6 +129,7 @@ async function editarDelito() {
     // Actualizar delito
     const responseDelito = await fetch(`${window.env.BACKEND_URL}/api/delitos/editarDelito/${idDelito}`, {
         method: 'PATCH',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -149,8 +151,9 @@ async function editarDelito() {
 
 // Función para obtener sucursales y cargarlas en el select
 async function cargarSucursales() {
-    const response = await fetch('${window.env.BACKEND_URL}/api/sucursales', {
+    const response = await fetch(`${window.env.BACKEND_URL}/api/sucursales`, {
         method: "GET",
+        credentials: 'include',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'

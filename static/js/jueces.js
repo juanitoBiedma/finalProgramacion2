@@ -14,6 +14,7 @@ async function obtenerUsuarioLogueado() {
     try {
         const response = await fetch(`${window.env.BACKEND_URL}/auth/usuario-logueado`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -38,6 +39,7 @@ async function cargarjueces() {
 
         const response = await fetch(`${window.env.BACKEND_URL}/api/jueces`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -98,6 +100,7 @@ async function eliminarJuez(idJuez) {
         // Obtener el juez
         const responseJuez = await fetch(`${window.env.BACKEND_URL}/api/jueces/${idJuez}`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -108,6 +111,7 @@ async function eliminarJuez(idJuez) {
             // Eliminar el juez
             const responseEliminarJuez = await fetch(`${window.env.BACKEND_URL}/api/jueces/${idJuez}`, {
                 method: "DELETE",
+                credentials: 'include',
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json"

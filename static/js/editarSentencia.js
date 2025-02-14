@@ -38,6 +38,7 @@ async function cargarDatosSentencia() {
     try {
         const responseSentencia = await fetch(`${window.env.BACKEND_URL}/api/sentencias/${idSentencia}`, {
             method: 'GET',
+            credentials: 'include',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
@@ -96,6 +97,7 @@ async function editarSentencia() {
 // Actualizar Sentencia
     const responseSentencia = await fetch(`${window.env.BACKEND_URL}/api/sentencias/editarSentencia/${idSentencia}`, {
         method: 'PATCH',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -116,8 +118,9 @@ async function editarSentencia() {
 
 // Función para obtener delitos y cargarlos en el select
 async function cargarDelitos() {
-    const responseDelitos = await fetch('${window.env.BACKEND_URL}/api/delitos', {
+    const responseDelitos = await fetch(`${window.env.BACKEND_URL}/api/delitos`, {
         method: 'GET',
+        credentials: 'include',
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json'
@@ -150,8 +153,9 @@ async function cargarDelitos() {
 
 // Función para obtener jueces y cargarlos en el select
 async function cargarJueces() {
-    const responseJueces = await fetch('${window.env.BACKEND_URL}/api/jueces', {
+    const responseJueces = await fetch(`${window.env.BACKEND_URL}/api/jueces`, {
         method: 'GET',
+        credentials: 'include',
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json'

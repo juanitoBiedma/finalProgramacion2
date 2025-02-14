@@ -38,6 +38,7 @@ async function cargarDatosSucursal() {
     try {
         const responseSucursal = await fetch(`${window.env.BACKEND_URL}/api/sucursales/${idSucursal}`, {
             method: 'GET',
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -106,6 +107,7 @@ async function editarSucursal() {
     // Actualizar sucursal
     const responseSucursal = await fetch(`${window.env.BACKEND_URL}/api/sucursales/editarSucursal/${idSucursal}`, {
         method: 'PATCH',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -127,8 +129,9 @@ async function editarSucursal() {
 
 // Función para obtener entidades y cargarlas en el select
 async function cargarEntidades() {
-    const response = await fetch('${window.env.BACKEND_URL}/api/entidades', {
+    const response = await `${window.env.BACKEND_URL}/api/entidades`, {
         method: "GET",
+        credentials: 'include',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'

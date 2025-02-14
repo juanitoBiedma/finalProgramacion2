@@ -16,6 +16,7 @@ async function obtenerIdUsuario() {
     try {
         const response = await fetch(`${window.env.BACKEND_URL}/auth/usuario-logueado`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -45,6 +46,7 @@ async function cargarPerfil() {
     try {
         const responseUsuario = await fetch(`${window.env.BACKEND_URL}/api/usuarios/${idUsuarioLogueado}`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -95,6 +97,7 @@ async function cargarPerfil() {
                 document.querySelector("#accordionSidebar").style.display = "none";
                 const responseVigilante = await fetch(`${window.env.BACKEND_URL}/api/vigilantes/usuario/${idUsuarioLogueado}`, {
                     method: "GET",
+                    credentials: 'include',
                     headers: {
                         "Accept": "application/json",
                         "Content-Type": "application/json"
@@ -115,6 +118,7 @@ async function cargarPerfil() {
                             if (vigilante.estaContratadoVigilante) {
                                 const responseContratoId = await fetch(`${window.env.BACKEND_URL}/api/contratos/vigilante/${vigilante.idVigilante}`, {
                                     method: "GET",
+                                    credentials: 'include',
                                     headers: {
                                         "Accept": "application/json",
                                         "Content-Type": "application/json"
@@ -126,6 +130,7 @@ async function cargarPerfil() {
                                     if (contratoId) {
                                         const responseContrato = await fetch(`${window.env.BACKEND_URL}/api/contratos/${contratoId.idContrato}`, {
                                             method: "GET",
+                                            credentials: 'include',
                                             headers: {
                                                 "Accept": "application/json",
                                                 "Content-Type": "application/json"

@@ -36,6 +36,7 @@ async function cargarContraseniaUsuario() {
     try {
         const response = await fetch(`${window.env.BACKEND_URL}/api/usuarios/${idUsuario}`, {
             method: 'GET',
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -108,6 +109,7 @@ async function editarContrasenia() {
     try {
         const response = await fetch(`${window.env.BACKEND_URL}/api/usuarios/editarContrasenia/${idUsuario}`, {
             method: 'PATCH',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json'
             },

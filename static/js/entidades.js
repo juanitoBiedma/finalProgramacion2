@@ -14,6 +14,7 @@ async function obtenerUsuarioLogueado() {
     try {
         const response = await fetch(`${window.env.BACKEND_URL}/auth/usuario-logueado`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -37,6 +38,7 @@ async function cargarEntidades() {
 
         const response = await fetch(`${window.env.BACKEND_URL}/api/entidades`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -96,6 +98,7 @@ async function eliminarEntidad(idEntidad) {
         // Obtener la entidad
         const responseEntidad = await fetch(`${window.env.BACKEND_URL}/api/entidades/${idEntidad}`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -106,6 +109,7 @@ async function eliminarEntidad(idEntidad) {
             // Eliminar la entidad
             const responseEliminarEntidad = await fetch(`${window.env.BACKEND_URL}/api/entidades/${idEntidad}`, {
                 method: "DELETE",
+                credentials: 'include',
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json"

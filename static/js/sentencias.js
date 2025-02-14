@@ -14,6 +14,7 @@ async function obtenerUsuarioLogueado() {
     try {
         const response = await fetch(`${window.env.BACKEND_URL}/auth/usuario-logueado`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -37,6 +38,7 @@ async function cargarSentencias() {
 
         const response = await fetch(`${window.env.BACKEND_URL}/api/sentencias`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -98,6 +100,7 @@ async function eliminarSentencia(idSentencia) {
         // Obtener la sentencia
         const responseSentencia = await fetch(`${window.env.BACKEND_URL}/api/sentencias/${idSentencia}`, {
             method: "GET",
+            credentials: 'include',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -108,6 +111,7 @@ async function eliminarSentencia(idSentencia) {
             // Eliminar la sentencia
             const responseEliminarSentencia = await fetch(`${window.env.BACKEND_URL}/api/sentencias/${idSentencia}`, {
                 method: "DELETE",
+                credentials: 'include',
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json"
