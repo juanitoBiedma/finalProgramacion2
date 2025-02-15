@@ -1,40 +1,40 @@
-// Función para mostrar el modal de alerta
-function mostrarModal(mensaje) {
-  document.getElementById("alertModalBodyLogin").innerText = mensaje;
-  $("#alertModalLogin").modal("show");
-}
-
-// --- SIN USO ---
-
-async function iniciarSesion() {
-  const username = document.getElementById("txtUser").value;
-  const password = document.getElementById("txtPass").value;
-
-  const datos = {
-    username: username,
-    password: password,
-  };
-
-  try {
-    const request = await fetch(`${window.env.BACKEND_URL}/auth/login`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(datos),
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form.user');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const data = {
+            username: formData.get('username'),
+            password: formData.get('password')
+        };
+        
+        fetch(`${window.env.BACKEND_URL}/auth/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+            credentials: 'include'
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Credenciales inválidas');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.status === 'success') {
+                window.location.href = 'index.html';
+            } else {
+                throw new Error('Error en el inicio de sesión');
+            }
+        })
+        .catch(error => {
+            const modalBody = document.getElementById('alertModalBodyLogin');
+            modalBody.textContent = 'Usuario o contraseña incorrectos';
+            $('#alertModalLogin').modal('show');
+        });
     });
-
-    if (request.ok) {
-      window.location.href = "index.html";
-    } else {
-      const errorMessage = await request.text();
-      mostrarModal("Error: " + errorMessage);
-    }
-  } catch (error) {
-    console.error("Error al iniciar sesión: ", error);
-    mostrarModal(
-      "Ocurrió un error al intentar iniciar sesión. Por favor intenta nuevamente"
-    );
-  }
-}
+});
