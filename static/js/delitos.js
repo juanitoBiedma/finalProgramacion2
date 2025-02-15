@@ -63,8 +63,7 @@ async function cargarDelitos() {
             // Asignación de botones solo para ADMINISTRADOR
             const accionesHTML = (rolUsuarioLogueado === 1) ? `${botonEliminar} ${botonEditarDelito}` : '';
 
-            const [year, month, day] = delito.fechaDelito.split('-');
-            const fechaDelito = new Date(year, month - 1, day);
+            const fechaDelito = new Date(delito.fechaDelito);
             const formattedDate = `${String(fechaDelito.getDate()).padStart(2, '0')}/${String(fechaDelito.getMonth() + 1).padStart(2, '0')}/${fechaDelito.getFullYear()}`;
 
             const delitoHTML =

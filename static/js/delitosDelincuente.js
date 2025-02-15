@@ -52,8 +52,7 @@ async function cargarDelincuentes() {
     const idDelincuente = urlParams.get('idDelincuente');
 
     if (!idDelincuente) {
-        console.error('No se encontró el idDelincuente en la URL', function ()
-        {
+        console.error('No se encontró el idDelincuente en la URL', function () {
             window.location.href = 'delitosDelincuente.html';
         });
     }
@@ -91,8 +90,7 @@ async function cargarDelitos() {
     const idDelincuente = urlParams.get('idDelincuente');
 
     if (!idDelincuente) {
-        console.error('No se encontró el idDelincuente en la URL', function ()
-        {
+        console.error('No se encontró el idDelincuente en la URL', function () {
             window.location.href = 'delitosDelincuente.html';
         });
     }
@@ -139,8 +137,8 @@ async function cargarDelitos() {
             selectHTML += '<option value="" disabled>No hay delitos disponibles</option>';
         } else {
             delitosDisponibles.forEach(delito => {
-                const [year, month, day] = delito.fechaDelito.split('-');
-                const formattedDate = `${String(day).padStart(2, '0')}/${String(month).padStart(2, '0')}/${year}`;
+                const fechaDelito = new Date(delito.fechaDelito);
+                const formattedDate = `${String(fechaDelito.getDate()).padStart(2, '0')}/${String(fechaDelito.getMonth() + 1).padStart(2, '0')}/${fechaDelito.getFullYear()}`;
                 const optionHTML = `<option value="${delito.idDelito}">${delito.sucursal.entidad.nombreEntidad} - ${delito.sucursal.nombreSucursal} - ${formattedDate}</option>`;
                 selectHTML += optionHTML;
             });
@@ -170,7 +168,7 @@ async function asignarDelito() {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({idDelito})
+            body: JSON.stringify({ idDelito })
         });
 
         if (!response.ok) {
@@ -200,12 +198,11 @@ async function mostrarDelitos(delitos) {
 
             const accionesHTML = (rolUsuarioLogueado === 1) ? `${botonEliminar}` : '';
 
-            const [year, month, day] = delito.fechaDelito.split('-');
-            const fechaDelito = new Date(year, month - 1, day);
+            const fechaDelito = new Date(delito.fechaDelito);
             const formattedDate = `${String(fechaDelito.getDate()).padStart(2, '0')}/${String(fechaDelito.getMonth() + 1).padStart(2, '0')}/${fechaDelito.getFullYear()}`;
 
             const delitoHTML =
-                    `<tr>
+                `<tr>
                 <td>${delito.idDelito}</td>
                 <td>${formattedDate}</td>
                 <td>${delito.sucursal.entidad.nombreEntidad}</td>
@@ -259,8 +256,7 @@ async function desvincularDelito(idDelito) {
         // Recargar la lista de delitos o actualizar la UI según sea necesario
         window.location.reload();
     } catch (error) {
-        mostrarModal("Ocurrió un error al intentar desvincular al delincuente del delito.", function ()
-        {
+        mostrarModal("Ocurrió un error al intentar desvincular al delincuente del delito.", function () {
             window.location.href = 'delincuentes.html';
         });
     }

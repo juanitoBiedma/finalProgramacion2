@@ -61,8 +61,7 @@ async function cargarSentencias() {
         let listadoHTML = '';
 
         sentencias.forEach((sentencia) => {
-            const [year, month, day] = sentencia.delito.fechaDelito.split('-');
-            const fechaDelito = new Date(year, month - 1, day);
+            const fechaDelito = new Date(sentencia.delito.fechaDelito);
             const formattedDate = `${String(fechaDelito.getDate()).padStart(2, '0')}/${String(fechaDelito.getMonth() + 1).padStart(2, '0')}/${fechaDelito.getFullYear()}`;
 
             let delitoHTML = `${sentencia.delito.sucursal.entidad.nombreEntidad} - ${sentencia.delito.sucursal.nombreSucursal} - ${formattedDate}`;

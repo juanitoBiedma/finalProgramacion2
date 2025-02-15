@@ -50,10 +50,10 @@ async function crearDelincuente() {
     const idBanda = document.getElementById('txtBandaDelincuente').value;
 
     // Si no se selecciona una banda, asignamos null
-    datosDelincuente.banda = idBanda ? {idBanda: idBanda} : null;
+    datosDelincuente.banda = idBanda ? { idBanda: idBanda } : null;
 
     // Asignar el delito seleccionado a la lista de delitos
-    datosDelincuente.delitos = [{idDelito: idDelito}];
+    datosDelincuente.delitos = [{ idDelito: idDelito }];
 
     const request = await fetch(`${window.env.BACKEND_URL}/api/delincuentes`, {
         method: 'POST',
@@ -66,13 +66,11 @@ async function crearDelincuente() {
     });
 
     if (request.ok) {
-        mostrarModal("Delincuente registrado con éxito!", function ()
-        {
+        mostrarModal("Delincuente registrado con éxito!", function () {
             window.location.href = 'delincuentes.html';
         });
     } else {
-        mostrarModal("Error al registrar el delincuente.", function ()
-        {
+        mostrarModal("Error al registrar el delincuente.", function () {
             window.location.href = 'delincuentes.html';
         });
     }
@@ -99,8 +97,8 @@ async function cargarDelitos() {
         if (delitos.length > 0) {
             // Iteramos sobre los delitos para crear las opciones
             delitos.forEach(delito => {
-                const [year, month, day] = delito.fechaDelito.split('-');
-                const formattedDate = `${String(day).padStart(2, '0')}/${String(month).padStart(2, '0')}/${year}`;
+                const fechaDelito = new Date(delito.fechaDelito);
+                const formattedDate = `${String(fechaDelito.getDate()).padStart(2, '0')}/${String(fechaDelito.getMonth() + 1).padStart(2, '0')}/${fechaDelito.getFullYear()}`;
                 let option = document.createElement('option');
                 option.value = delito.idDelito; // Asignamos el id del delito como valor
                 option.text = `${delito.sucursal.entidad.nombreEntidad} - ${delito.sucursal.nombreSucursal} - ${formattedDate}`; // Mostramos el nombre de la sucursal, entidad y fecha del delito
@@ -110,15 +108,13 @@ async function cargarDelitos() {
 
         } else {
             // Si no hay delitos, deshabilitamos el botón de crear delincuente
-            mostrarModal("No hay delitos disponibles. No se puede registrar un delincuente.", function ()
-        {
-            window.location.href = 'delincuentes.html';
-        });
+            mostrarModal("No hay delitos disponibles. No se puede registrar un delincuente.", function () {
+                window.location.href = 'delincuentes.html';
+            });
         }
 
     } else {
-        mostrarModal("Error al cargar los delitos.", function ()
-        {
+        mostrarModal("Error al cargar los delitos.", function () {
             window.location.href = 'delincuentes.html';
         });
     }
@@ -153,8 +149,7 @@ async function cargarBandas() {
         }
 
     } else {
-        mostrarModal("Error al cargar las bandas.", function ()
-        {
+        mostrarModal("Error al cargar las bandas.", function () {
             window.location.href = 'delincuentes.html';
         });
     }

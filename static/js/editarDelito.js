@@ -62,9 +62,8 @@ async function cargarDatosDelito() {
             const delito = await responseDelito.json();
             await cargarSucursales();
 
-            // Formatear la fecha al formato yyyy-MM-dd para el input
-            const [year, month, day] = delito.fechaDelito.split('-');
-            const formattedDate = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+            const fechaDelito = new Date(delito.fechaDelito);
+            const formattedDate = `${String(fechaDelito.getDate()).padStart(2, '0')}/${String(fechaDelito.getMonth() + 1).padStart(2, '0')}/${fechaDelito.getFullYear()}`;
 
             // Rellenar los campos del formulario con los datos del delito
             document.getElementById('txtEditarFechaDelito').value = formattedDate;
@@ -171,7 +170,7 @@ async function cargarSucursales() {
         sucursales.forEach(sucursal => {
             let option = document.createElement('option');
             option.value = sucursal.idSucursal; // Asignamos el id de la sucursal como valor
-            option.text = sucursal.nombreSucursal; // Mostramos el nombre de la sucursal
+            option.text = `${sucursal.entidad.nombreEntidad} - ${sucursal.nombreSucursal}`; // Mostramos el nombre de la sucursal
             select.appendChild(option);
         });
 

@@ -2,7 +2,9 @@ document.addEventListener('DOMContentLoaded', function () {
     cargarVigilantes();
     mostrarContratos();
 
-    fetch(`${window.env.BACKEND_URL}/auth/usuario-logueado`)
+    fetch(`${window.env.BACKEND_URL}/auth/usuario-logueado`, {
+        credentials: 'include'
+    })
         .then(response => response.json())
         .then(data => {
             // 2 = Usuario investigador
@@ -106,7 +108,7 @@ async function asignarContrato() {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({idContrato})
+            body: JSON.stringify({ idContrato })
         });
 
         if (!response.ok) {
@@ -149,12 +151,16 @@ async function mostrarContratos() {
 
             const accionesHTML = (rolUsuarioLogueado === 1) ? `${botonEliminar}` : '';
 
-            const [year, month, day] = contrato.fechaContrato.split('-');
+            /* const [year, month, day] = contrato.fechaContrato.split('-');
             const fechaContrato = new Date(year, month - 1, day);
             const formattedDate = `${String(fechaContrato.getDate()).padStart(2, '0')}/${String(fechaContrato.getMonth() + 1).padStart(2, '0')}/${fechaContrato.getFullYear()}`;
+ */
+            const fechaContrato = new Date(contrato.fechaContrato);
+            const formattedDate = `${String(fechaContrato.getDate()).padStart(2, '0')}/${String(fechaContrato.getMonth() + 1).padStart(2, '0')}/${fechaContrato.getFullYear()}`;
+
 
             const contratoHTML =
-                    `<tr>
+                `<tr>
                 <td>${contrato.idContrato}</td>
                 <td>${formattedDate}</td>
                 <td>${contrato.sucursal.entidad.nombreEntidad} - ${contrato.sucursal.nombreSucursal}</td>

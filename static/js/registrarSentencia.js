@@ -52,8 +52,8 @@ async function crearSentencia() {
         return;
     }
 
-    datosSentencia.juez = {idJuez: idJuez};
-    datosSentencia.delito = {idDelito: idDelito};
+    datosSentencia.juez = { idJuez: idJuez };
+    datosSentencia.delito = { idDelito: idDelito };
 
     const request = await fetch(`${window.env.BACKEND_URL}/api/sentencias`, {
         method: 'POST',
@@ -66,13 +66,11 @@ async function crearSentencia() {
     });
 
     if (request.ok) {
-        mostrarModal('Sentencia registrada con éxito!', function ()
-        {
+        mostrarModal('Sentencia registrada con éxito!', function () {
             window.location.href = 'sentencias.html';
         });
     } else {
-        mostrarModal('Error al registrar la sentencia.', function ()
-        {
+        mostrarModal('Error al registrar la sentencia.', function () {
             window.location.href = 'sentencias.html';
         });
     }
@@ -108,8 +106,8 @@ async function cargarDelitos() {
         if (delitos.length > 0) {
             delitos.forEach((delito) => {
                 if (!delitosConSentencia.has(delito.idDelito)) {
-                    const [year, month, day] = delito.fechaDelito.split('-');
-                    const formattedDate = `${String(day).padStart(2, '0')}/${String(month).padStart(2, '0')}/${year}`;
+                    const fechaDelito = new Date(delito.fechaDelito);
+                    const formattedDate = `${String(fechaDelito.getDate()).padStart(2, '0')}/${String(fechaDelito.getMonth() + 1).padStart(2, '0')}/${fechaDelito.getFullYear()}`;
                     const option = document.createElement("option");
                     option.value = delito.idDelito;
                     option.text = `${delito.sucursal.entidad.nombreEntidad} - ${delito.sucursal.nombreSucursal} - ${formattedDate}`;
@@ -117,14 +115,12 @@ async function cargarDelitos() {
                 }
             });
         } else {
-            mostrarModal("No hay delitos disponibles. No se puede registrar una sentencia.", function ()
-        {
-            window.location.href = 'sentencias.html';
-        });
+            mostrarModal("No hay delitos disponibles. No se puede registrar una sentencia.", function () {
+                window.location.href = 'sentencias.html';
+            });
         }
     } else {
-        mostrarModal("Error al cargar los delitos o sentencias.", function ()
-        {
+        mostrarModal("Error al cargar los delitos o sentencias.", function () {
             window.location.href = 'sentencias.html';
         });
     }
@@ -152,14 +148,12 @@ async function cargarJueces() {
                 selectJueces.appendChild(option);
             });
         } else {
-            mostrarModal("No hay jueces disponibles. No se puede registrar una sentencia.", function ()
-        {
-            window.location.href = 'sentencias.html';
-        });
+            mostrarModal("No hay jueces disponibles. No se puede registrar una sentencia.", function () {
+                window.location.href = 'sentencias.html';
+            });
         }
     } else {
-        mostrarModal("Error al cargar los jueces.", function ()
-        {
+        mostrarModal("Error al cargar los jueces.", function () {
             window.location.href = 'sentencias.html';
         });
     }

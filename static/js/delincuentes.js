@@ -70,8 +70,7 @@ async function cargarDelincuentes() {
         });
 
         if (!response.ok) {
-            mostrarModal("Error al obtener los delincuentes", function ()
-            {
+            mostrarModal("Error al obtener los delincuentes", function () {
                 window.location.href = 'delincuentes.html';
             });
         }
@@ -101,8 +100,8 @@ async function cargarDelincuentes() {
                     const nombreEntidad = delito.sucursal.entidad.nombreEntidad;
                     const nombreSucursal = delito.sucursal.nombreSucursal;
 
-                    const [year, month, day] = delito.fechaDelito.split('-');
-                    const formattedDate = `${String(day).padStart(2, '0')}/${String(month).padStart(2, '0')}/${year}`;
+                    const fechaDelito = new Date(delito.fechaDelito);
+                    const formattedDate = `${String(fechaDelito.getDate()).padStart(2, '0')}/${String(fechaDelito.getMonth() + 1).padStart(2, '0')}/${fechaDelito.getFullYear()}`;
 
                     // Buscar la sentencia correspondiente al delito
                     const sentencia = sentencias.find(s => s.delito.idDelito === delito.idDelito);
@@ -116,7 +115,7 @@ async function cargarDelincuentes() {
             }
 
             const delincuenteHTML =
-                    `<tr>
+                `<tr>
                     <td>${delincuente.idDelincuente}</td>
                     <td>${delincuente.nombreDelincuente} ${delincuente.apellidoDelincuente}</td>
                     <td>${delincuente.banda ? delincuente.banda.nombreBanda : 'Sin banda'}</td>
@@ -173,8 +172,7 @@ async function eliminarDelincuente(idDelincuente) {
             });
 
             if (!responseEliminarDelincuente.ok) {
-                mostrarModal("Error al eliminar al delincuente.", function ()
-                {
+                mostrarModal("Error al eliminar al delincuente.", function () {
                     window.location.href = 'delincuentes.html';
                 });
                 return;
@@ -182,15 +180,13 @@ async function eliminarDelincuente(idDelincuente) {
 
             location.reload();
         } else {
-            mostrarModal("Error al obtener el delincuente.", function ()
-            {
+            mostrarModal("Error al obtener el delincuente.", function () {
                 window.location.href = 'delincuentes.html';
             });
         }
     } catch (error) {
         console.error("Error al eliminar al delincuente:", error);
-        mostrarModal("Ocurrió un error al intentar eliminar al delincuente.", function ()
-        {
+        mostrarModal("Ocurrió un error al intentar eliminar al delincuente.", function () {
             window.location.href = 'delincuentes.html';
         });
     }
