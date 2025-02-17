@@ -1,10 +1,18 @@
 // Importar librería
 require("dotenv").config({ path: "./config.env" });
 const express = require("express");
+const https = require("https");
+const fs = require("fs");
 const path = require("path");
 
 // Objetos para llamar los métodos de express
 const app = express();
+
+// Cargar el certificado SSL
+const options = {
+  key: fs.readFileSync("./certs/key.pem"),
+  cert: fs.readFileSync("./certs/cert.pem"),
+};
 
 // Variables de entorno
 const backendUrl = process.env.BACKEND_URL;
@@ -12,11 +20,11 @@ console.log("URL del Backend: ", backendUrl);
 
 // Ruta para la página inicial
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "login.html"));
+  res.sendFile(path.join(__dirname, "./public/login.html"));
 });
 
 // Ruta de archivos estáticos
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Ruta para servir las variables de entorno
 app.get("/env.js", (req, res) => {
@@ -36,8 +44,8 @@ app.use((req, res, next) => {
 });
 
 // Configuramos el puerto para nuestro servidor local
-app.listen(3000, function () {
+https.createServer(options, app).listen(3000, () => {
   console.log(
-    "Servidor iniciado correctamente. Ingrese a http://localhost:3000"
+    "Servidor iniciado correctamente. Ingrese a https://192.168.1.3:3000"
   );
 });
